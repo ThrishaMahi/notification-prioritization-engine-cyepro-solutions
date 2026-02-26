@@ -86,16 +86,18 @@ notification-engine/
 ## Quick Start
 
 ```bash
-# 1. Install dependencies
+# 1.Openfolder
+cd myproject
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 2. Setup environment
+# 3. Setup environment
 cp .env.example .env
 
-# 3. Start server
+# 4. Start server
 python -m api.main
 
-# 4. Open API docs
+# 5. Open API docs
 http://localhost:8000/docs
 ```
 
