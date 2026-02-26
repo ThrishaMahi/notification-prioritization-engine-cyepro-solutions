@@ -1,0 +1,35 @@
+fatigue:
+  max_per_hour: 5
+  max_per_day: 20
+  cooldown_seconds: 300
+
+deduplication:
+  exact_ttl_seconds: 3600
+  near_duplicate_threshold: 0.85
+
+priority_map:
+  critical: 100
+  high: 75
+  medium: 50
+  low: 25
+  promotional: 10
+
+event_rules:
+  - event_type: "payment_failed"
+    action: "now"
+    reason: "Always send payment failures immediately"
+
+  - event_type: "promo_offer"
+    action: "later"
+    send_at: "09:00"
+    reason: "Promotional content batched to morning"
+
+  - event_type: "system_ping"
+    action: "never"
+    reason: "Internal pings suppressed from user notifications"
+
+quiet_hours:
+  enabled: true
+  start: "22:00"
+  end: "08:00"
+  override_for: ["critical"]
